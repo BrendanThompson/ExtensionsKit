@@ -1,0 +1,10 @@
+{
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "swift"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Collection.swift",
+    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Bundle.swift"
+  ],
+  "editor.default_syntax" : "swift"
+}
