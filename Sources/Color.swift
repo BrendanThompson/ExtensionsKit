@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-typealias Kelvin = Double
+public typealias Kelvin = Double
 
 public extension Color {
     init(temperature: Kelvin) {
