@@ -3,7 +3,7 @@ import SwiftUI
 
 public typealias Kelvin = Double
 
-@available(iOS 13, *)
+@available(iOS 13, tvOS 13, *)
 public extension Color {
     init(temperature: Kelvin) {
         let components = componentsForColorTemperature(temperature: temperature)
