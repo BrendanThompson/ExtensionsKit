@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UIKit
 
 public typealias Kelvin = Double
 
@@ -9,6 +10,40 @@ public extension Color {
         let components = componentsForColorTemperature(temperature: temperature)
         self.init(red: components.red, green: components.green, blue: components.blue)
     }
+}
+
+public extension Color: RawRepresentable {
+
+    public init?(rawValue: String) {
+
+        guard let data = Data(base64Encoded: rawValue) else{
+            self = .black
+            return
+        }
+
+        do{
+            let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UIColor ?? .black
+            self = Color(color)
+        }catch{
+            self = .black
+        }
+
+    }
+
+    public var rawValue: String {
+
+        do{
+            let data = try NSKeyedArchiver.archivedData(withRootObject: UIColor(self), requiringSecureCoding: false) as Data
+            return data.base64EncodedString()
+
+        }catch{
+
+            return ""
+
+        }
+
+    }
+
 }
 
 // Algorithm taken from Tanner Helland's post: http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
