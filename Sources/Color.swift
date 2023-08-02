@@ -12,6 +12,9 @@ public extension Color {
     }
 }
 
+/// Color can now be stored in UserDefaults
+///
+/// Credit: https://medium.com/geekculture/using-appstorage-with-swiftui-colors-and-some-nskeyedarchiver-magic-a38038383c5e
 public extension Color: RawRepresentable {
 
     public init?(rawValue: String) {
