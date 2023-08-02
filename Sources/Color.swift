@@ -41,6 +41,26 @@ extension Color: RawRepresentable {
     }
 }
 
+@available(iOS 14, tvOS 14, macOS 13, *)
+public extension Color {
+    var contrastingColor: Color {
+        let components = cgColor?.components
+
+        let compRed: CGFloat = (components?[0] ?? 0.0) * 0.299
+        let compGreen: CGFloat = (components?[1] ?? 0.0) * 0.587
+        let compBlue: CGFloat = (components?[2] ?? 0.0) * 0.114
+
+            // Counting the perceptive luminance - human eye favors green color...
+        let luminance = (compRed + compGreen + compBlue)
+
+            // bright colors - black font
+            // dark colors - white font
+        let col: CGFloat = luminance > 0.7 ? 0.1 : 1
+
+        return Color(red: col, green: col, blue: col)
+    }
+}
+
 // Algorithm taken from Tanner Helland's post: http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
 func componentsForColorTemperature(temperature: Kelvin) -> (red: Double, green: Double, blue: Double) {
     let percentKelvin = temperature / 100
