@@ -1,13 +1,18 @@
 {
+  "eablokker.tabsSidebar.config.collapsedFolders" : [
+
+  ],
   "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
     "swift",
     "json"
   ],
   "eablokker.tabsSidebar.config.customTabOrder" : [
-    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Collection.swift",
-    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/TimeInterval.swift",
-    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/.nova\/Configuration.json",
-    "\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Color.swift"
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Collection.swift",
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/TimeInterval.swift",
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/.nova\/Configuration.json",
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Color.swift",
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/FileManager.swift",
+    "file:\/\/\/Users\/brendanthompson\/Development\/personal\/ExtensionsKit\/Sources\/Bundle.swift"
   ],
   "editor.default_syntax" : "swift"
 }
