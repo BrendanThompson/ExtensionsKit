@@ -1,6 +1,6 @@
 //
 //  Bundle.swift
-//  
+//
 //
 //  Created by Brendan Thompson on 28/4/2023.
 //
@@ -17,15 +17,15 @@ public extension Bundle {
         guard let url = url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")
         }
-        
+
         guard let data = try? Data(contentsOf: url) else {
             fatalError("Failed to load \(file) from bundle")
         }
-        
+
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = dateDecodingStrategy
         decoder.keyDecodingStrategy = keyDecodingStrategy
-        
+
         do {
             return try decoder.decode(T.self, from: data)
         } catch let DecodingError.keyNotFound(key, context) {
@@ -40,4 +40,14 @@ public extension Bundle {
             fatalError("Failed to decode \(file) from bundle: \(error.localizedDescription)")
         }
     }
+
+    var appName: String { getInfo("CFBundleName") }
+    var displayName: String { getInfo("CFBundleDisplayName") }
+    var language: String { getInfo("CFBundleDevelopmentRegion") }
+    var identifier: String { getInfo("CFBundleIdentifier") }
+    var copyright: String { getInfo("NSHumanReadableCopyright").replacingOccurrences(of: "\\\\n", with: "\n") }
+    var appBuild: String { getInfo("CFBundleVersion") }
+    var appVersionLong: String { getInfo("CFBundleShortVersionString") }
+
+    fileprivate func getInfo(_ str: String) -> String { infoDictionary?[str] as? String ?? "⚠️" }
 }
