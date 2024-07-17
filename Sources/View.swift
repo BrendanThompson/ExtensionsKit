@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13, tvOS 13, macOS 13, *)
-extension View {
+public extension View {
     /// Applies the given transform if the given condition evaluates to `true`.
     /// - Parameters:
     ///   - condition: The condition to evaluate.

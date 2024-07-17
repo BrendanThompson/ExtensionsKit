@@ -1,6 +1,6 @@
 import Foundation
 
-extension TimeInterval {
+public extension TimeInterval {
     static func minutes(_ minutes: Double) -> TimeInterval {
         TimeInterval(minutes * 60)
     }
